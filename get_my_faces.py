@@ -7,6 +7,13 @@ import random
 output_dir = './my_faces'
 size = 64
 
+photo_number_input = input("Please enter how many photos: ")
+try:
+    photo_number = int(photo_number_input)
+except:
+    photo_number_input = input("Please enter an integer: ")
+    photo_number = int(photo_number_input)
+
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
@@ -33,7 +40,7 @@ camera = cv2.VideoCapture(0)
 
 index = 1
 while True:
-    if (index <= 10000):
+    if (index <= photo_number):
         print('Being processed picture %s' % index)
         # 从摄像头读取照片
         success, img = camera.read()
